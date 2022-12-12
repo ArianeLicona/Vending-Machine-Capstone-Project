@@ -1,2 +1,3 @@
-package com.techelevator.view;public class CustomerInput {
+package com.techelevator;
+public class CustomerInput {
 }
