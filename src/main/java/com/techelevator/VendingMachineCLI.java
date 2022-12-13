@@ -3,6 +3,10 @@ package com.techelevator;
 import com.techelevator.view.Menu;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class VendingMachineCLI {
 
@@ -11,6 +15,7 @@ public class VendingMachineCLI {
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
 
 	private Menu menu;
+	public String item;
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
@@ -32,6 +37,26 @@ public class VendingMachineCLI {
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
+	}
+
+	//Method for reading inventory file.
+	public String locatingInventory(){
+		try {
+			File inventoryFile = new File("vendingmachine.csv");
+			Scanner scanner = new Scanner(inventoryFile);
+			ArrayList<String> inventoryList = new ArrayList<String>();
+			while (scanner.hasNextLine()){
+				inventoryList.add(scanner.nextLine());
+				System.out.println(inventoryList);
+			}
+
+			scanner.close();
+
+		} catch (Exception e){
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return item;
 	}
 
 	public static void gui(){
