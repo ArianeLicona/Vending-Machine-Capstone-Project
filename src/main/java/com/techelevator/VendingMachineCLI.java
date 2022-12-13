@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class VendingMachineCLI {
 
+
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
@@ -27,8 +28,27 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
+				try {
+					//reading inventory from file and adding it to a list
+					File inventoryFile = new File("vendingmachine.csv");
+					Scanner scanner = new Scanner(inventoryFile);
+					ArrayList<String> inventoryList = new ArrayList<String>();
+					while (scanner.hasNextLine()){
+						inventoryList.add(scanner.nextLine());
+					}
+					//printing out items in inventoryList
+					for (String element : inventoryList) {
+						System.out.println(element);
+					}
+					scanner.close();
+
+				} catch (Exception e){
+					System.out.println("An error occurred.");
+					e.printStackTrace();
+				}
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
+
 			}
 		}
 	}
@@ -37,26 +57,6 @@ public class VendingMachineCLI {
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
-	}
-
-	//Method for reading inventory file.
-	public String locatingInventory(){
-		try {
-			File inventoryFile = new File("vendingmachine.csv");
-			Scanner scanner = new Scanner(inventoryFile);
-			ArrayList<String> inventoryList = new ArrayList<String>();
-			while (scanner.hasNextLine()){
-				inventoryList.add(scanner.nextLine());
-				System.out.println(inventoryList);
-			}
-
-			scanner.close();
-
-		} catch (Exception e){
-			System.out.println("An error occurred.");
-			e.printStackTrace();
-		}
-		return item;
 	}
 
 	public static void gui(){
