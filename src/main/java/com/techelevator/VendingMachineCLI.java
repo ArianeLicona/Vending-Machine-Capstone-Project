@@ -2,6 +2,8 @@ package com.techelevator;
 
 import com.techelevator.view.Menu;
 
+import javax.swing.*;
+
 public class VendingMachineCLI {
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
@@ -31,4 +33,17 @@ public class VendingMachineCLI {
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
 	}
+
+	public static void gui(){
+		JFrame frame = new JFrame();//creates new frame
+		frame.setTitle("Vendo-Matic 800");//sets title
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//exits out of application
+		frame.setResizable(false);//prevents frame from being resized
+		frame.setSize(500,500);//sets size of frame
+		frame.setVisible(true);//Makes frame visible
+
+		//ImageIcon topImage = new ImageIcon(); //adds image
+
+	}
+
 }
