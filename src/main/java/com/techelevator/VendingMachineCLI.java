@@ -16,7 +16,7 @@ public class VendingMachineCLI {
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
 
 	private Menu menu;
-	public String item;
+
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
@@ -49,6 +49,7 @@ public class VendingMachineCLI {
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 
+
 			}
 		}
 	}
@@ -57,6 +58,14 @@ public class VendingMachineCLI {
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
+	}
+
+	public double currentMoneyProvided(double total){
+		double currentBalance = 0.0;
+		Scanner scanner = new Scanner(System.in);
+		double moneyProvided = scanner.nextDouble();
+		total = currentBalance + moneyProvided;
+		return total;
 	}
 
 	public static void gui(){

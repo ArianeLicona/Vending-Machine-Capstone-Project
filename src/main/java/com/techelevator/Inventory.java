@@ -14,10 +14,11 @@ public class Inventory {
             while (scan.hasNextLine()) {
 
                 String line = scan.nextLine();
-                String [] divideInventory = line.split("/" , 5);
+                String [] divideInventory = line.split("|" , 5);
 
                 if (divideInventory.equals("Chip")) {
-                    Snacks a = new Chip() ;
+                   Snacks potatoCrisps = new Chip("A1", "Potato Crisps", 3.05, "Chip");
+                   allSnacks.add(potatoCrisps);
 
                 } else if (divideInventory.equals("Candy")) {
                     Snacks b = new Candy() ;

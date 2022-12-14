@@ -6,12 +6,14 @@ public abstract class Snacks {
     private String location;
     private String productName;
     private double price;
+    private String snackType;
     private int quantity;
 
-    public Snacks(String location, String productName, double price, String snackType) {
+    public Snacks(String location, String productName, double price, String snackType, int quantity) {
         this.location = location;
         this.productName = productName;
         this.price = price;
+        this.snackType = snackType;
         this.quantity = quantity;
     }
 
@@ -26,7 +28,9 @@ public abstract class Snacks {
     public double getPrice() {
         return price;
     }
-
+    public String getSnackType() {
+        return snackType;
+    }
     public int getQuantity() {
         return quantity;
     }
