@@ -5,4 +5,8 @@ public class Drinks extends Snacks{
         super(location, name, price, type);
 
     }
+    @Override
+    public String printOut() {
+        return "Glug Glug, Yum!";
+    }
 }
