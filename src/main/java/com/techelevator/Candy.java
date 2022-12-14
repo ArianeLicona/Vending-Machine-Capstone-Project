@@ -5,4 +5,9 @@ public class Candy extends Snacks{
         super(location, name, price, type);
 
     }
+
+    @Override
+    public String printOut() {
+        return "Munch Munch, Yum!";
+    }
 }

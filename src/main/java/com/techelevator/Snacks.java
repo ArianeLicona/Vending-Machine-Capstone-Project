@@ -14,4 +14,6 @@ public abstract class Snacks {
         this.price = price;
         this.snackType = snackType;
     }
+
+    public abstract String printOut();
 }
