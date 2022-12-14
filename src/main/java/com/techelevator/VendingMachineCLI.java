@@ -68,6 +68,19 @@ public class VendingMachineCLI implements Purchases{
 		total = currentBalance + moneyProvided;
 		return total;
 	}
+	@Override
+	public double getBalanceSpent(Map<String, Double> itemsPurchased) {
+		double spentAmount = 0.00;
+		for (String items : itemsPurchased.keySet()) {
+			spentAmount += itemsPurchased.get(items);
+		}
+		return spentAmount;
+	}
+
+	public double getBalanceReturned(double amountOwed) {
+
+		return currentMoneyProvided() - getBalanceSpent();
+	}
 
 	public static void gui(){
 		JFrame frame = new JFrame();//creates new frame
@@ -81,13 +94,5 @@ public class VendingMachineCLI implements Purchases{
 
 	}
 
-
-	@Override
-	public double getBalance(Map<String, Double> itemsPurchased) {
-		double price = 0.00;
-		for (String items : itemsPurchased.keySet()) {
-			price += itemsPurchased.get(items);
-		}
-		return price;
 	}
 }

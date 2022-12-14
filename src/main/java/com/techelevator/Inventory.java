@@ -14,25 +14,31 @@ public class Inventory {
             while (scan.hasNextLine()) {
 
                 String line = scan.nextLine();
-                String [] divideInventory = line.split("|" , 5);
+                String [] inventoryToAdd = line.split("|" , 5);
 
-                if (divideInventory.equals("Chip")) {
+                if (inventoryToAdd.equals("Chip")) {
                    Snacks potatoCrisps = new Chip("A1", "Potato Crisps", 3.05, "Chip");
                    allSnacks.add(potatoCrisps);
 
-                } else if (divideInventory.equals("Candy")) {
-                    Snacks b = new Candy() ;
+                } else if (inventoryToAdd.equals("Chip")) {
+                    Snacks b = new Chip("A2","Stackers",1.45, "Chip") ;
+                    allSnacks.add(b);
 
-                } else if (divideInventory.equals("Drinks")) {
-                    Snacks c = new Drinks() ;
+                } else if (inventoryToAdd.equals("Chip")) {
+                    Snacks c = new Chip("A3","Grain Waves", 2.75, "Chip");
+                    allSnacks.add(c);
 
-                } else if (divideInventory.equals("Gum")) {
-                    Snacks d = new Gum() ;
+                } else if (inventoryToAdd.equals("Chip")) {
+                    Snacks d = new Chip("A4", "Cloud Popcorn",3.65,"Chip") ;
 
             }
 
             }
         }
+    }
+
+    public List<Snacks> getAllSnacks() {
+        return allSnacks;
     }
 
     public void displayInventory() {
