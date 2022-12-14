@@ -4,12 +4,11 @@ import com.techelevator.view.Menu;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
-public class VendingMachineCLI implements Purchases{
+public class VendingMachineCLI {
 
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
@@ -17,7 +16,7 @@ public class VendingMachineCLI implements Purchases{
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
 
 	private Menu menu;
-
+	public String item;
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
@@ -50,7 +49,6 @@ public class VendingMachineCLI implements Purchases{
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 
-
 			}
 		}
 	}
@@ -61,6 +59,7 @@ public class VendingMachineCLI implements Purchases{
 		cli.run();
 	}
 
+<<<<<<< HEAD
 	public double currentMoneyProvided(double total){
 		double currentBalance = 0.0;
 		Scanner scanner = new Scanner(System.in);
@@ -76,12 +75,6 @@ public class VendingMachineCLI implements Purchases{
 		}
 		return spentAmount;
 	}
-
-	public double getBalanceReturned(double amountOwed) {
-
-		return currentMoneyProvided() - getBalanceSpent();
-	}
-
 	public static void gui(){
 		JFrame frame = new JFrame();//creates new frame
 		frame.setTitle("Vendo-Matic 800");//sets title
@@ -94,5 +87,14 @@ public class VendingMachineCLI implements Purchases{
 
 	}
 
+<<<<<<< HEAD
+=======
+	public double getReceipt(Map<String, Double> snackPurchased) {
+		double receipt = 0;
+		for (Map.Entry<String, Double> entry: snackPurchased.entrySet()) {
+			receipt += entry.getValue();
+		}
+		return receipt;
+>>>>>>> 5f9e3f31809eba5b936aeb14dbf7b4f68c4a1970
 	}
 }
