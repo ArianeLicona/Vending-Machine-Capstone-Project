@@ -38,7 +38,7 @@ public class Inventory {
 
                 } else if (inventoryToAdd.equals("Candy")) {
                     Snacks f = new Candy("B2", "Cowtales", 1.50, "Candy");
-                    allSnacks(f);
+                    allSnacks.add(f);
 
                 } else if (inventoryToAdd.equals("Candy")) {
                     Snacks g = new Candy("B3", "Wonka Bar", 1.50, "Candy");

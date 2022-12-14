@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface Receipt {
 
-    double getReceipt(Map<String, Double> servicesRendered);
+    double getReceipt(Map<String, Double> snackPurchased);
 
 }

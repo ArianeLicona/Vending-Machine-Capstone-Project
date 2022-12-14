@@ -59,7 +59,7 @@ public class VendingMachineCLI {
 		cli.run();
 	}
 
-<<<<<<< HEAD
+
 	public double currentMoneyProvided(double total){
 		double currentBalance = 0.0;
 		Scanner scanner = new Scanner(System.in);
@@ -87,14 +87,12 @@ public class VendingMachineCLI {
 
 	}
 
-<<<<<<< HEAD
-=======
+	@Override
 	public double getReceipt(Map<String, Double> snackPurchased) {
 		double receipt = 0;
 		for (Map.Entry<String, Double> entry: snackPurchased.entrySet()) {
 			receipt += entry.getValue();
 		}
 		return receipt;
->>>>>>> 5f9e3f31809eba5b936aeb14dbf7b4f68c4a1970
 	}
 }

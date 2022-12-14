@@ -17,6 +17,10 @@ public abstract class Snacks {
         this.quantity = quantity;
     }
 
+    public Snacks(String location, String name, double price, String type) {
+
+    }
+
     public String getLocation() {
         return location;
     }
