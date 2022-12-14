@@ -4,8 +4,8 @@ import com.techelevator.view.Menu;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class VendingMachineCLI {
@@ -71,4 +71,11 @@ public class VendingMachineCLI {
 
 	}
 
+	public double getReceipt(Map<String, Double> snackPurchased) {
+		double receipt = 0;
+		for (Map.Entry<String, Double> entry: snackPurchased.entrySet()) {
+			receipt += entry.getValue();
+		}
+		return receipt;
+	}
 }
