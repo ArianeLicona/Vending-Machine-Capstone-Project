@@ -6,9 +6,10 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
-public class VendingMachineCLI {
+public class VendingMachineCLI implements Purchases{
 
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
@@ -80,4 +81,13 @@ public class VendingMachineCLI {
 
 	}
 
+
+	@Override
+	public double getBalance(Map<String, Double> itemsPurchased) {
+		double price = 0.00;
+		for (String items : itemsPurchased.keySet()) {
+			price += itemsPurchased.get(items);
+		}
+		return price;
+	}
 }
