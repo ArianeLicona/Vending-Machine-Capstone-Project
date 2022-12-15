@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
-public class VendingMachineCLI {
+public class VendingMachineCLI extends Inventory{
 
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
@@ -16,7 +16,7 @@ public class VendingMachineCLI {
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
 
 	private Menu menu;
-	public String item;
+
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
@@ -28,24 +28,7 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
-				try {
-					//reading inventory from file and adding it to a list
-					File inventoryFile = new File("vendingmachine.csv");
-					Scanner scanner = new Scanner(inventoryFile);
-					ArrayList<String> inventoryList = new ArrayList<String>();
-					while (scanner.hasNextLine()){
-						inventoryList.add(scanner.nextLine());
-					}
-					//printing out items in inventoryList
-					for (String element : inventoryList) {
-						System.out.println(element);
-					}
-					scanner.close();
-
-				} catch (Exception e){
-					System.out.println("An error occurred.");
-					e.printStackTrace();
-				}
+				System.out.println();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 
@@ -67,7 +50,7 @@ public class VendingMachineCLI {
 		total = currentBalance + moneyProvided;
 		return total;
 	}
-	@Override
+	//@Override
 	public double getBalanceSpent(Map<String, Double> itemsPurchased) {
 		double spentAmount = 0.00;
 		for (String items : itemsPurchased.keySet()) {
