@@ -9,16 +9,12 @@ public abstract class Snacks {
     private String snackType;
     private int quantity;
 
-    public Snacks(String location, String productName, double price, String snackType, int quantity) {
+    public Snacks(String location, String productName, double price, String snackType) {
         this.location = location;
         this.productName = productName;
         this.price = price;
         this.snackType = snackType;
-        this.quantity = quantity;
-    }
-
-    public Snacks(String location, String name, double price, String type) {
-
+        this.quantity = 5;
     }
 
     public String getLocation() {
