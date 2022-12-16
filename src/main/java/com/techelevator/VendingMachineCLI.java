@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
+
+
 public class VendingMachineCLI{
 
 	private double money = 0.00; //need to add a zero for money value
@@ -147,4 +149,7 @@ public class VendingMachineCLI{
 //		}
 //		return receipt;
 //	}
+
+
 }
+
