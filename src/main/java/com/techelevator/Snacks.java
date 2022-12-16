@@ -14,8 +14,9 @@ public abstract class Snacks {
         this.productName = productName;
         this.price = price;
         this.snackType = snackType;
-        this.quantity = 5;
+        this.quantity = 5; // is this.quantity = 0 "sold out"
     }
+    //
 
     public String getLocation() {
         return location;
@@ -33,6 +34,9 @@ public abstract class Snacks {
     }
     public int getQuantity() {
         return quantity;
+    }
+    public void setQuantity(int remainingQuantity){
+        quantity -= remainingQuantity;
     }
 
     public abstract String printOut();

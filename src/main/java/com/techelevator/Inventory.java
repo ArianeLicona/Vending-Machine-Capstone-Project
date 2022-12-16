@@ -21,19 +21,38 @@ public class Inventory {
                 String[] inventoryToAdd = line.split("\\|"); // use escape operator
 
                 Snacks snacks = null; //need a snack item because it is abstract, so we create variable for future created snacks
-                    if (inventoryToAdd[3].equals("Candy")) { // creating if for every type
-                        allSnacks.add(snacks = new Candy(inventoryToAdd[0], inventoryToAdd[1], Double.parseDouble(inventoryToAdd[2]), inventoryToAdd[3]));
-                    } else if (inventoryToAdd[3].equals("Chip")) { // creating if for every type
-                        allSnacks.add(snacks = new Chip(inventoryToAdd[0], inventoryToAdd[1], Double.parseDouble(inventoryToAdd[2]), inventoryToAdd[3]));
-                    } else if (inventoryToAdd[3].equals("Drink")) { // creating if for every type
-                        allSnacks.add(snacks = new Drinks(inventoryToAdd[0], inventoryToAdd[1], Double.parseDouble(inventoryToAdd[2]), inventoryToAdd[3]));
-                    } else if (inventoryToAdd[3].equals("Gum")) { // creating if for every type
-                        allSnacks.add(snacks = new Gum(inventoryToAdd[0], inventoryToAdd[1], Double.parseDouble(inventoryToAdd[2]), inventoryToAdd[3]));
-                    }
+                if (inventoryToAdd[3].equals("Candy")) { // creating if for every type
+                    allSnacks.add(snacks = new Candy(inventoryToAdd[0], inventoryToAdd[1], Double.parseDouble(inventoryToAdd[2]), inventoryToAdd[3]));
+                } else if (inventoryToAdd[3].equals("Chip")) { // creating if for every type
+                    allSnacks.add(snacks = new Chip(inventoryToAdd[0], inventoryToAdd[1], Double.parseDouble(inventoryToAdd[2]), inventoryToAdd[3]));
+                } else if (inventoryToAdd[3].equals("Drink")) { // creating if for every type
+                    allSnacks.add(snacks = new Drinks(inventoryToAdd[0], inventoryToAdd[1], Double.parseDouble(inventoryToAdd[2]), inventoryToAdd[3]));
+                } else if (inventoryToAdd[3].equals("Gum")) { // creating if for every type
+                    allSnacks.add(snacks = new Gum(inventoryToAdd[0], inventoryToAdd[1], Double.parseDouble(inventoryToAdd[2]), inventoryToAdd[3]));
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("Invalid input.");
+        }
+    }
 
-    // Shorting the if statment
+    public List<Snacks> getAllSnacks() {
+        return allSnacks;
+    }
+
+    public void displayInventory() { //call that same item for select item
+
+        for (Snacks snack : allSnacks) {
+            System.out.print(snack.getLocation() + " ");
+            System.out.print(snack.getProductName() + " ");
+            System.out.print(snack.getPrice() + " ");
+            System.out.print(snack.getQuantity() + "\n");
+        }
+    }
+
+}
+
+    // Shorting the if statement and the if statement was pulling to nothing causing coding error
 
 
 //                if (inventoryToAdd.equals("Chip")) {      // will always be false
@@ -101,23 +120,4 @@ public class Inventory {
 //                    allSnacks.add(p);
 //                }
 
-        catch (FileNotFoundException e){
-            System.out.println("Invalid input");
-        }
-    }
 
-    public List<Snacks> getAllSnacks() {
-        return allSnacks;
-    }
-
-    public void displayInventory() {
-
-        for (Snacks snack : allSnacks) {
-            System.out.print(snack.getLocation()+ " ");
-            System.out.print(snack.getProductName() + " ");
-            System.out.print(snack.getPrice() + " ");
-            System.out.print(snack.getQuantity() + "\n");
-        }
-    }
-
-}

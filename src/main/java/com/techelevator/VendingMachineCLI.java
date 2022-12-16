@@ -10,35 +10,63 @@ import java.util.Scanner;
 
 public class VendingMachineCLI{
 
+	private double money = 0.00; //need to add a zero for money value
+
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
-	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
+	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_EXIT };
+	private static final String PURCHASE_MENU_OPTIONS_FEED_MONEY = "Feed Money";
+	private static final String PURCHASE_MENU_OPTIONS_SELECT_PRODUCT = "Select Product";
+	private static final String PURCHASE_MENU_OPTIONS_FINISH_TRANSACTION = "Finish Transaction";
+	private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_OPTIONS_FEED_MONEY, PURCHASE_MENU_OPTIONS_SELECT_PRODUCT, PURCHASE_MENU_OPTIONS_FINISH_TRANSACTION};
 
 	private Menu menu;
 
 	private static Inventory inventory = new Inventory();
 
 
+
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
 
-	public void run() { //
+
+
+
+
+	public void run() {
 
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
-			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
-				inventory.displayInventory(); // display vending machine items
-			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
-				// do purchase
+			System.out.println(choice);
+			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) { // display vending machine items
+				inventory.displayInventory();
+			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) { // do purchase
+				while (true) { //allows us to stay in the loop until broken
+					String purchaseChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+					System.out.println(purchaseChoice);
+					if (purchaseChoice.equals(PURCHASE_MENU_OPTIONS_FEED_MONEY)) {
+						currentMoneyProvided();
+					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTIONS_SELECT_PRODUCT)) {
+						inventory.displayInventory();
+						selectingProducts();
+					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTIONS_FINISH_TRANSACTION)) {
+						//need to create method
+						break;
+					}
+				}
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)){
 				break;
 			}
 		}
 	}
+//	public void displayPurchaseMenu(){
+//
+//	}
+
 
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
@@ -47,13 +75,43 @@ public class VendingMachineCLI{
 		cli.run();
 	}
 
+	public void selectingProducts() {
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Enter item number here: ");
+		String itemNumber = userInput.nextLine();
+		boolean isValid = false;
+		for (Snacks snacks : inventory.getAllSnacks()) {
+				if (itemNumber.equals(snacks.getLocation())) {
+					isValid = true;
+					if (snacks.getQuantity() < 1){
+						System.out.println("Sold out!");
+						break;
+					}
+					if (money >= snacks.getPrice()) {
+						System.out.println(snacks.getProductName());
+						System.out.println(snacks.getPrice());
+						System.out.println(snacks.getQuantity());
+						money -= snacks.getPrice();
+						System.out.println("Your current balance is: $" + money);
+						snacks.setQuantity(1); // removes one item
+						System.out.println(snacks.printOut());
+					} else {
+						System.out.println("Not enough money. Please insert more money.");
+					}
+				}
+			}
+		if (!isValid){
+			System.out.println("INVALID INPUT! TRY AGAIN.");
+		}
+	}
 
-	public double currentMoneyProvided(double total){
-		double currentBalance = 0.0;
+	//finish transaction method
+	public void currentMoneyProvided(){
 		Scanner scanner = new Scanner(System.in);
 		double moneyProvided = scanner.nextDouble();
-		total = currentBalance + moneyProvided;
-		return total;
+		money += moneyProvided;
+		System.out.println("$"+ money);
+
 	}
 	//@Override
 	public double getBalanceSpent(Map<String, Double> itemsPurchased) {
@@ -72,7 +130,6 @@ public class VendingMachineCLI{
 		frame.setVisible(true);//Makes frame visible
 
 		//ImageIcon topImage = new ImageIcon(); //adds image
-
 	}
 
 //	@Override
