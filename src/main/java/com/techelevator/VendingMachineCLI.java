@@ -22,6 +22,7 @@ public class VendingMachineCLI{
 	private static final String PURCHASE_MENU_OPTIONS_SELECT_PRODUCT = "Select Product";
 	private static final String PURCHASE_MENU_OPTIONS_FINISH_TRANSACTION = "Finish Transaction";
 	private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_OPTIONS_FEED_MONEY, PURCHASE_MENU_OPTIONS_SELECT_PRODUCT, PURCHASE_MENU_OPTIONS_FINISH_TRANSACTION};
+	private Scanner userInputMenu;
 
 	private Menu menu;
 
@@ -32,9 +33,6 @@ public class VendingMachineCLI{
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
-
-
-
 
 
 	public void run() {
@@ -72,6 +70,10 @@ public class VendingMachineCLI{
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
+		System.out.println("************************************");
+		System.out.println("*       Vendo-Matic 800            *");
+		System.out.println("************************************");
+		System.out.println();
 		inventory.inventory(); // calls the method that generates the inventory from the CSV
 		cli.run();
 	}
@@ -95,7 +97,7 @@ public class VendingMachineCLI{
 						money -= snacks.getPrice();
 						NumberFormat formatter = NumberFormat.getCurrencyInstance();
 						String moneyString = formatter.format(money);
-						System.out.println("Your current balance is: $" + moneyString);
+						System.out.println("Your current balance is: " + moneyString);
 						snacks.setQuantity(1); // removes one item
 						System.out.println(snacks.printOut());
 					} else {
