@@ -4,6 +4,7 @@ import com.techelevator.view.Menu;
 
 import javax.swing.*;
 import java.io.File;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
@@ -78,7 +79,7 @@ public class VendingMachineCLI{
 	public void selectingProducts() {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter item number here: ");
-		String itemNumber = userInput.nextLine();
+		String itemNumber = userInput.nextLine().toUpperCase();
 		boolean isValid = false;
 		for (Snacks snacks : inventory.getAllSnacks()) {
 				if (itemNumber.equals(snacks.getLocation())) {
@@ -92,7 +93,9 @@ public class VendingMachineCLI{
 						System.out.println(snacks.getPrice());
 						System.out.println(snacks.getQuantity());
 						money -= snacks.getPrice();
-						System.out.println("Your current balance is: $" + money);
+						NumberFormat formatter = NumberFormat.getCurrencyInstance();
+						String moneyString = formatter.format(money);
+						System.out.println("Your current balance is: $" + moneyString);
 						snacks.setQuantity(1); // removes one item
 						System.out.println(snacks.printOut());
 					} else {
@@ -110,7 +113,9 @@ public class VendingMachineCLI{
 		Scanner scanner = new Scanner(System.in);
 		double moneyProvided = scanner.nextDouble();
 		money += moneyProvided;
-		System.out.println("$"+ money);
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		String moneyString = formatter.format(money);
+		System.out.println(moneyString);
 
 	}
 	//@Override
