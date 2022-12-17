@@ -24,7 +24,7 @@ public class VendingMachineCLI{
 	private static final String PURCHASE_MENU_OPTIONS_SELECT_PRODUCT = "Select Product";
 	private static final String PURCHASE_MENU_OPTIONS_FINISH_TRANSACTION = "Finish Transaction";
 	private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_OPTIONS_FEED_MONEY, PURCHASE_MENU_OPTIONS_SELECT_PRODUCT, PURCHASE_MENU_OPTIONS_FINISH_TRANSACTION};
-	private Scanner userInputMenu;
+
 
 	private Menu menu;
 
@@ -40,6 +40,14 @@ public class VendingMachineCLI{
 	public void run() {
 
 		while (true) {
+			try {
+				TransactionLog transLog = new TransactionLog();
+				TransactionLog.log("Purchase history:");
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			System.out.println(choice);
@@ -112,7 +120,6 @@ public class VendingMachineCLI{
 		}
 	}
 
-	//finish transaction method
 	public void currentMoneyProvided(){
 		Scanner scanner = new Scanner(System.in);
 		double moneyProvided = scanner.nextDouble();
@@ -121,6 +128,31 @@ public class VendingMachineCLI{
 		String moneyString = formatter.format(money);
 		System.out.println(moneyString);
 
+	}
+
+	//finish transaction method
+
+//	public double returnedChange() {
+//		return currentMoneyProvided(money) - selectingProducts();
+//
+//	}
+	public void changeGiven(double changeInCoins) {
+		int quarters = 0;
+		int dimes = 0;
+		int nickels = 0;
+
+		while (changeInCoins >= .25) {
+			quarters = quarters + 1;
+			changeInCoins = changeInCoins - .25;
+		}
+		while (changeInCoins >= .10) {
+			nickels = dimes + 1;
+			changeInCoins = changeInCoins - .10;
+		}
+		while (changeInCoins >= .5) {
+			nickels = nickels + 1;
+			changeInCoins = changeInCoins - .5;
+		}
 	}
 	//@Override
 	public double getBalanceSpent(Map<String, Double> itemsPurchased) {
