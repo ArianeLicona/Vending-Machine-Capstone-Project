@@ -173,15 +173,5 @@ public class VendingMachineCLI{
 		//ImageIcon topImage = new ImageIcon(); //adds image
 	}
 
-//	@Override
-//	public double getReceipt(Map<String, Double> snackPurchased) {
-//		double receipt = 0;
-//		for (Map.Entry<String, Double> entry: snackPurchased.entrySet()) {
-//			receipt += entry.getValue();
-//		}
-//		return receipt;
-//	}
-
-
 }
 

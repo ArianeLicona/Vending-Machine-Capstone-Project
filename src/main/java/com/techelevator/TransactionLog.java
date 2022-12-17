@@ -1,21 +1,26 @@
 package com.techelevator;
-
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
+
 
 public class TransactionLog {
+        public static void log(String message) {
+            File logFile = new File("logs/transactionlog.log");
+            try (PrintWriter historyLog = new PrintWriter(new FileOutputStream(logFile, true))) {
+                historyLog.println(message);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
 
-    final File C_S_V =  new File("vendingmachine.csv");
 
-    public static void log(String message) {
+            }
+        }
+    }
+
+//    final File C_S_V = new File("vendingmachine.csv");
+//
+//    public static void log(String message) {
 //        public static void main(String[] args) throws Exception {
 //            boolean append = true;
 //            FileHandler handler = new FileHandler("Log.txt" , append);
@@ -49,20 +54,19 @@ public class TransactionLog {
 //            handler.setFormatter();
 //                    (message + "\n");
 //            pw.close();
-
-            File purchaseLog = new File("Log.txt");
-            SimpleDateFormat logTime = new SimpleDateFormat("MM-DD-YYY HH:MM:SS");
-            double moneyFed = 0;
-            double totalMoney = 0;
-            double leftoverMoney = 0;
-            boolean keepGoing = true;
-
-        try {
-            PrintWriter pw = new PrintWriter(new FileOutputStream("Log.txt", true));
-            pw.write(message + "\n");
-            pw.close();
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-        }
-    }
+//
+//            File purchaseLog = new File("Log.txt");
+//            SimpleDateFormat logTime = new SimpleDateFormat("MM-DD-YYY HH:MM:SS");
+//            double moneyFed = 0;
+//            double totalMoney = 0;
+//            double leftoverMoney = 0;
+//            boolean keepGoing = true;
+//
+//        try {
+//            PrintWriter pw = new PrintWriter(new FileOutputStream("Log.txt", true));
+//            pw.write(message + "\n");
+//            pw.close();
+//        } catch (IOException e) {
+//            System.err.println(e.getMessage());
+//        }
+//        }
