@@ -51,7 +51,7 @@ public class TransactionLog {
 //            pw.close();
 
             File purchaseLog = new File("Log.txt");
-            SimpleDateFormat logTime = new SimpleDateFormat("MM-DD-YYY HH:MM:SS");
+//            SimpleDateFormat logTime = new SimpleDateFormat("MM-DD-YYY HH:MM:SS");
             double moneyFed = 0;
             double totalMoney = 0;
             double leftoverMoney = 0;
@@ -59,6 +59,7 @@ public class TransactionLog {
 
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream("Log.txt", true));
+            SimpleDateFormat logTime = new SimpleDateFormat("MM-DD-YYY HH:MM:SS");
             pw.write(message + "\n");
             pw.close();
         } catch (IOException e) {

@@ -63,7 +63,7 @@ public class VendingMachineCLI{
 						inventory.displayInventory();
 						selectingProducts();
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTIONS_FINISH_TRANSACTION)) {
-						//need to create method
+						changeDue();
 						break;
 					}
 				}
@@ -72,9 +72,6 @@ public class VendingMachineCLI{
 			}
 		}
 	}
-//	public void displayPurchaseMenu(){
-//
-//	}
 
 
 	public static void main(String[] args) {
@@ -103,7 +100,6 @@ public class VendingMachineCLI{
 					if (money >= snacks.getPrice()) {
 						System.out.println(snacks.getProductName());
 						System.out.println(snacks.getPrice());
-						System.out.println(snacks.getQuantity());
 						money -= snacks.getPrice();
 						NumberFormat formatter = NumberFormat.getCurrencyInstance();
 						String moneyString = formatter.format(money);
@@ -132,36 +128,22 @@ public class VendingMachineCLI{
 
 	//finish transaction method
 
-//	public double returnedChange() {
-//		return currentMoneyProvided(money) - selectingProducts();
-//
-//	}
-	public void changeGiven(double changeInCoins) {
-		int quarters = 0;
-		int dimes = 0;
-		int nickels = 0;
+	public void changeDue() {
+		double amountSpent = 0.00;
+		amountSpent = money;
 
-		while (changeInCoins >= .25) {
-			quarters = quarters + 1;
-			changeInCoins = changeInCoins - .25;
-		}
-		while (changeInCoins >= .10) {
-			nickels = dimes + 1;
-			changeInCoins = changeInCoins - .10;
-		}
-		while (changeInCoins >= .5) {
-			nickels = nickels + 1;
-			changeInCoins = changeInCoins - .5;
-		}
+
+		int quarters = (int) (money / .25);
+		money -= quarters * .25;
+		int dimes = (int) (money / .10);
+		money -= dimes * .10;
+		int nickels = (int) (money / .05);
+		money -= nickels * .05;
+
+		System.out.println("Please accept your change in the amount of: " + quarters + " quarters "
+				+ dimes + " dimes " + nickels + " nickels ");
 	}
-	//@Override
-	public double getBalanceSpent(Map<String, Double> itemsPurchased) {
-		double spentAmount = 0.00;
-		for (String items : itemsPurchased.keySet()) {
-			spentAmount += itemsPurchased.get(items);
-		}
-		return spentAmount;
-	}
+
 	public static void gui(){
 		JFrame frame = new JFrame();//creates new frame
 		frame.setTitle("Vendo-Matic 800");//sets title
@@ -172,16 +154,5 @@ public class VendingMachineCLI{
 
 		//ImageIcon topImage = new ImageIcon(); //adds image
 	}
-
-//	@Override
-//	public double getReceipt(Map<String, Double> snackPurchased) {
-//		double receipt = 0;
-//		for (Map.Entry<String, Double> entry: snackPurchased.entrySet()) {
-//			receipt += entry.getValue();
-//		}
-//		return receipt;
-//	}
-
-
 }
 
