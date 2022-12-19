@@ -1,0 +1,40 @@
+12/17/2022 12:11:00 PMFeed Money: 2.02.0
+Purchase history:
+ Feed Money: $4.00
+ Change due: 0.0
+Purchase history:
+Purchase history:
+Purchase history:
+ Feed Money: $1.00
+ Feed Money: $4.00
+ Change due: 0.049999999999999906
+Purchase history:
+Purchase history:
+Purchase history:
+Purchase history:
+Purchase history:
+Purchase history:
+Purchase history:
+Purchase history:
+12/18/2022 11:20:32 PM  Feed Money: $5.00
+12/18/2022 11:20:32 PM  Change due: 3.469446951953614E-16
+Purchase history:
+Purchase history:
+12/18/2022 11:22:16 PM  Feed Money: $5.00
+12/18/2022 11:22:16 PM  Change due: 0.0
+Purchase history:
+Purchase history:
+12/18/2022 11:25:20 PM  Feed Money: $5.00
+12/18/2022 11:25:20 PM  Change due: $0.00
+Purchase history:
+Purchase history:
+Purchase history:
+12/18/2022 11:29:37 PM  Feed Money: $5.00
+12/18/2022 11:29:37 PM  Snacks : Cola C12.5
+12/18/2022 11:29:37 PM  Change due: 0.0
+Purchase history:
+Purchase history:
+12/18/2022 11:31:25 PM  Feed Money: $5.00
+12/18/2022 11:31:25 PM  Snacks : Heavy C4 2.0
+12/18/2022 11:31:25 PM  Change due: 0.0
+Purchase history:

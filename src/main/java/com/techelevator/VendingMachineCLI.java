@@ -5,16 +5,25 @@ import com.techelevator.view.Menu;
 import javax.swing.*;
 import java.io.File;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
+import static com.techelevator.TransactionLog.log;
 
 
 public class VendingMachineCLI{
 
+
 	private double money = 0.00; //need to add a zero for money value
 
+//	SimpleDateFormat transactionlogDateTime = new SimpleDateFormat("MM/DD/YYYY hh:mm:ss a ");
+	LocalDateTime now = LocalDateTime.now();
+	DateTimeFormatter dateFormatter =  DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a ");
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
@@ -42,7 +51,7 @@ public class VendingMachineCLI{
 		while (true) {
 			try {
 				TransactionLog transLog = new TransactionLog();
-				TransactionLog.log("Purchase history:");
+				log("Purchase history:");
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -108,7 +117,9 @@ public class VendingMachineCLI{
 						System.out.println(snacks.printOut());
 					} else {
 						System.out.println("Not enough money. Please insert more money.");
+
 					}
+					log(dateFormatter.format(now) +" Snacks : " + snacks.getProductName() + " " + snacks.getLocation()+ " " + (money -= snacks.getPrice()));
 				}
 			}
 		if (!isValid){
@@ -124,6 +135,7 @@ public class VendingMachineCLI{
 		String moneyString = formatter.format(money);
 		System.out.println(moneyString);
 
+		log(dateFormatter.format(now) + " Feed Money: " + formatter.format(money));
 	}
 
 	//finish transaction method
@@ -139,6 +151,9 @@ public class VendingMachineCLI{
 		money -= dimes * .10;
 		int nickels = (int) (money / .05);
 		money -= nickels * .05;
+//		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
+//		log((dateFormatter.format(now) + " Change due: " + (amountSpent = money)));
 
 		System.out.println("Please accept your change in the amount of: " + quarters + " quarters "
 				+ dimes + " dimes " + nickels + " nickels ");
@@ -154,9 +169,5 @@ public class VendingMachineCLI{
 
 		//ImageIcon topImage = new ImageIcon(); //adds image
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> e934ce6b52e85d29445844c7dec75fbc05c86d81
 }
 
