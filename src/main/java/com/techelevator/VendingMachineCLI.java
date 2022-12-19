@@ -21,7 +21,6 @@ public class VendingMachineCLI{
 
 	private double money = 0.00; //need to add a zero for money value
 
-//	SimpleDateFormat transactionlogDateTime = new SimpleDateFormat("MM/DD/YYYY hh:mm:ss a ");
 	LocalDateTime now = LocalDateTime.now();
 	DateTimeFormatter dateFormatter =  DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a ");
 
@@ -115,6 +114,7 @@ public class VendingMachineCLI{
 						System.out.println("Your current balance is: " + moneyString);
 						snacks.setQuantity(1); // removes one item
 						System.out.println(snacks.printOut());
+//						snacks.notify();
 					} else {
 						System.out.println("Not enough money. Please insert more money.");
 
@@ -151,9 +151,6 @@ public class VendingMachineCLI{
 		money -= dimes * .10;
 		int nickels = (int) (money / .05);
 		money -= nickels * .05;
-//		NumberFormat formatter = NumberFormat.getCurrencyInstance();
-
-//		log((dateFormatter.format(now) + " Change due: " + (amountSpent = money)));
 
 		System.out.println("Please accept your change in the amount of: " + quarters + " quarters "
 				+ dimes + " dimes " + nickels + " nickels ");
