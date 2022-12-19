@@ -54,6 +54,7 @@ public class TransactionLog {
 //            handler.setFormatter();
 //                    (message + "\n");
 //            pw.close();
+<<<<<<< HEAD
 //
 //            File purchaseLog = new File("Log.txt");
 //            SimpleDateFormat logTime = new SimpleDateFormat("MM-DD-YYY HH:MM:SS");
@@ -70,3 +71,23 @@ public class TransactionLog {
 //            System.err.println(e.getMessage());
 //        }
 //        }
+=======
+
+            File purchaseLog = new File("Log.txt");
+//            SimpleDateFormat logTime = new SimpleDateFormat("MM-DD-YYY HH:MM:SS");
+            double moneyFed = 0;
+            double totalMoney = 0;
+            double leftoverMoney = 0;
+            boolean keepGoing = true;
+
+        try {
+            PrintWriter pw = new PrintWriter(new FileOutputStream("Log.txt", true));
+            SimpleDateFormat logTime = new SimpleDateFormat("MM-DD-YYY HH:MM:SS");
+            pw.write(message + "\n");
+            pw.close();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        }
+    }
+>>>>>>> e934ce6b52e85d29445844c7dec75fbc05c86d81
