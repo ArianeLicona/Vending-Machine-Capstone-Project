@@ -46,3 +46,35 @@ Purchase history:
 12/18/2022 10:58:41 PM  Feed Money: $6.00
 12/18/2022 10:58:41 PM  Snacks : Dr. Salt C2 3.0
 Purchase history:
+Purchase history:
+12/19/2022 09:05:38 AM  Feed Money: $6.00
+12/19/2022 09:05:38 AM  Snacks : Cloud Popcorn A4 -1.2999999999999998
+Purchase history:
+Purchase history:
+12/19/2022 09:06:53 AM  Feed Money: $6.00
+12/19/2022 09:06:53 AM  Snacks : Cloud Popcorn A4 -1.2999999999999998
+12/19/2022 09:06:53 AM  Feed Money: -$0.30
+Purchase history:
+Purchase history:
+Purchase history:
+12/19/2022 09:09:10 AM  Feed Money: $5.00
+Purchase history:
+Purchase history:
+12/19/2022 09:23:35 AM  Feed Money: $6.00
+12/19/2022 09:23:35 AM  Snacks : Cloud Popcorn A4 -1.2999999999999998
+Purchase history:
+Purchase history:
+12/19/2022 09:24:14 AM  Feed Money: $6.00
+12/19/2022 09:24:14 AM  Snacks : Cloud Popcorn A4 2.35
+12/19/2022 09:24:14 AM  Feed Money: $3.35
+Purchase history:
+Purchase history:
+12/19/2022 09:29:14 AM  Feed Money: $6.00
+12/19/2022 09:29:14 AM  Snacks : Cloud Popcorn A4 2.35
+12/19/2022 09:29:14 AM GIVE CHANGE: $ 8.326672684688674E-17
+Purchase history:
+Purchase history:
+12/19/2022 09:30:04 AM  Feed Money: $6.00
+12/19/2022 09:30:04 AM  Snacks : Cloud Popcorn A4 2.35
+12/19/2022 09:30:04 AM GIVE CHANGE: $ 2.35
+Purchase history:

@@ -119,7 +119,7 @@ public class VendingMachineCLI{
 						System.out.println("Not enough money. Please insert more money.");
 
 					}
-					log(dateFormatter.format(now) +" Snacks : " + snacks.getProductName() + " " + snacks.getLocation()+ " " + (money -= snacks.getPrice()));
+					log(dateFormatter.format(now) +" Snacks : " + snacks.getProductName() + " " + snacks.getLocation()+ " " + money);
 				}
 			}
 		if (!isValid){
@@ -144,6 +144,8 @@ public class VendingMachineCLI{
 		double amountSpent = 0.00;
 		amountSpent = money;
 
+		log(dateFormatter.format(now) + "GIVE CHANGE: $ " + money);
+
 
 		int quarters = (int) (money / .25);
 		money -= quarters * .25;
@@ -154,6 +156,8 @@ public class VendingMachineCLI{
 
 		System.out.println("Please accept your change in the amount of: " + quarters + " quarters "
 				+ dimes + " dimes " + nickels + " nickels ");
+
+//		log(dateFormatter.format(now) + "GIVE CHANGE: $ " + money);
 	}
 
 	public static void gui(){
