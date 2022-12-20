@@ -48,14 +48,6 @@ public class VendingMachineCLI{
 	public void run() {
 
 		while (true) {
-			try {
-				TransactionLog transLog = new TransactionLog();
-				log("Purchase history:");
-
-			} catch (Exception e) {
-				//Custom message to avoid printing stack trace.
-				System.out.println("An error occurred.");
-			}
 
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
@@ -97,7 +89,7 @@ public class VendingMachineCLI{
 	public void selectingProducts() {
 		Scanner userInput = new Scanner(System.in);
 		System.out.println("Enter item number here: ");
-		String itemNumber = userInput.nextLine().toUpperCase();
+		String itemNumber = userInput.nextLine().toUpperCase().trim();
 		boolean isValid = false;
 		for (Snacks snacks : inventory.getAllSnacks()) {
 				if (itemNumber.equals(snacks.getLocation())) {
@@ -120,7 +112,8 @@ public class VendingMachineCLI{
 						System.out.println("Not enough money. Please insert more money.");
 
 					}
-					log(dateFormatter.format(now) +" Snacks : " + snacks.getProductName() + " " + snacks.getLocation()+ " " + money);
+					NumberFormat formatter = NumberFormat.getCurrencyInstance();
+					log(dateFormatter.format(now) +" Snacks : " + snacks.getProductName() + " " + snacks.getLocation()+ " " + formatter.format(money));
 				}
 			}
 		if (!isValid){
@@ -140,13 +133,12 @@ public class VendingMachineCLI{
 		log(dateFormatter.format(now) + " Feed Money: " + formatter.format(money));
 	}
 
-	//finish transaction method
-
 	public void changeDue() {
 		double amountSpent = 0.00;
 		amountSpent = money;
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
-		log(dateFormatter.format(now) + "GIVE CHANGE: $ " + money);
+		log(dateFormatter.format(now) + "GIVE CHANGE: " + formatter.format(money));
 
 
 		int quarters = (int) (money / .25);

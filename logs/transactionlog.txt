@@ -78,3 +78,22 @@ Purchase history:
 12/19/2022 09:30:04 AM  Snacks : Cloud Popcorn A4 2.35
 12/19/2022 09:30:04 AM GIVE CHANGE: $ 2.35
 Purchase history:
+Purchase history:
+Purchase history:
+Purchase history:
+Purchase history:
+12/19/2022 05:18:56 PM  Feed Money: $8.00
+12/19/2022 05:18:56 PM  Feed Money: $10.00
+12/19/2022 05:18:56 PM  Snacks : Dr. Salt C2 8.5
+12/19/2022 05:18:56 PM GIVE CHANGE: $ 8.5
+Purchase history:
+Purchase history:
+12/19/2022 05:37:03 PM  Feed Money: $3.00
+12/19/2022 05:37:03 PM  Snacks : Heavy C4 $1.50
+12/19/2022 05:37:03 PM GIVE CHANGE: $1.50
+Purchase history:
+12/19/2022 05:40:15 PM  Feed Money: $6.00
+12/19/2022 05:40:15 PM  Snacks : U-Chews D1 $5.15
+12/19/2022 05:40:15 PM GIVE CHANGE: $5.15
+12/19/2022 05:42:05 PM  Feed Money: $6.00
+12/19/2022 05:42:05 PM  Snacks : U-Chews D1 $5.15
